@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ta-instructors
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ta-instructors
+  template:
+    metadata:
+      labels:
+        app: ta-instructors
+    spec:
+      containers:
+        - image: vicuolia/instructorservice
+          name: ta-instructors
+          ports:
+            - containerPort: 8087
+              name: ta-instructors
+          env:
+            - name: POSTGRES_ENDPOINT
+              value: "jdbc:postgresql://localhost:5432/"
+            - name: POSTGRES_PASSWORD
+              value: "1qwerty2asdfg"
+            - name: POSTGRES_USERNAME
+              value: "travel_agency"
