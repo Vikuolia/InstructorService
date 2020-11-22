@@ -26,7 +26,6 @@ public final class Instructor{
     private int background;
 
     public Instructor(String name, String surname, int background){
-        this.instructorId = UUID.randomUUID().toString();
         this.name = name;
         this.surname = surname;
         this.background = background;
