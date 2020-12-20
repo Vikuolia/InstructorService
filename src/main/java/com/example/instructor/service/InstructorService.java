@@ -11,7 +11,7 @@ public interface InstructorService {
 
     List<Instructor> getAll();
 
-    Instructor getById(String id) throws NotFoundException;
+    Instructor getById(String id);
 
     void deleteById(String id);
 }

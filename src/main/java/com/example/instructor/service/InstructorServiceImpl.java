@@ -29,10 +29,8 @@ public class InstructorServiceImpl implements InstructorService {
     }
 
     @Override
-    public Instructor getById(String id) throws NotFoundException {
-        Optional<Instructor> optionalInstructor = instructorRepository.findById(id);
-        if(optionalInstructor.isPresent()) return instructorRepository.findById(id).get();
-        else throw new NotFoundException(String.format("Instructor with id: %s does not exist", id));
+    public Instructor getById(String id){
+        return instructorRepository.getOne(id);
     }
 
     @Override
