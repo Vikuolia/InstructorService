@@ -1,7 +1,5 @@
 package com.example.instructor.model;
 
-import com.example.instructor.InstructorRequest;
-import com.example.instructor.InstructorResponse;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -9,7 +7,6 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.UUID;
 
 
 @NoArgsConstructor
