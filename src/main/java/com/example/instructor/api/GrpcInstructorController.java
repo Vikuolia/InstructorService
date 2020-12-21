@@ -18,12 +18,11 @@ public class GrpcInstructorController extends InstructorServiceGrpc.InstructorSe
 
     @Override
     public void add(InstructorRequest request, StreamObserver<InstructorResponse> responseObserver){
-        String instructorId = request.getInstructorId();
         String name = request.getName();
         String surname = request.getSurname();
         int background = request.getBackground();
 
-        Instructor instructorAdd = new Instructor(instructorId, name, surname, background);
+        Instructor instructorAdd = new Instructor(name, surname, background);
         Instructor instructorResponse = instructorService.addInstructor(instructorAdd);
 
         InstructorResponse response = InstructorResponse.newBuilder()
@@ -39,8 +38,8 @@ public class GrpcInstructorController extends InstructorServiceGrpc.InstructorSe
     @Override
     public void all(AllInstructorsRequest request, StreamObserver<AllInstructorsResponse> responseObserver) {
         List<Instructor> instructors = instructorService.getAll();
-
         List<InstructorResponse> instructorResponses= new ArrayList<>();
+
         for(Instructor instructor: instructors){
             InstructorResponse oneResponse = InstructorResponse.newBuilder()
                                                                .setId(instructor.getInstructorId())
@@ -52,7 +51,6 @@ public class GrpcInstructorController extends InstructorServiceGrpc.InstructorSe
         }
         AllInstructorsResponse response = AllInstructorsResponse.newBuilder().addAllInstructors(instructorResponses)
                                                                              .build();
-
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }

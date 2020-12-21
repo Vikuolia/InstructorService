@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.UUID;
 
 
 @NoArgsConstructor
@@ -23,8 +24,8 @@ public final class Instructor{
     private String surname;
     private int background;
 
-    public Instructor(String id, String name, String surname, int background){
-        this.instructorId = id;
+    public Instructor(String name, String surname, int background){
+        this.instructorId = UUID.randomUUID().toString();
         this.name = name;
         this.surname = surname;
         this.background = background;
