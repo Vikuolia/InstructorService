@@ -1,7 +1,6 @@
 package com.example.instructor.service;
 
 import com.example.instructor.model.Instructor;
-import javassist.NotFoundException;
 
 import java.util.List;
 
